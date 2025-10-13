@@ -42,8 +42,6 @@ class ModelLoader:
         self.config = load_config()
         log.info("YAML config loaded", config_keys=list(self.config.keys()))
 
-    
-
     def load_embeddings(self):
         """
         Load and return embedding model from Google Generative AI.
@@ -59,8 +57,8 @@ class ModelLoader:
                 asyncio.set_event_loop(asyncio.new_event_loop())
 
             return GoogleGenerativeAIEmbeddings(
-                model=model_name,
-                google_api_key=self.api_key_mgr.get("GOOGLE_API_KEY")  # type: ignore
+                model = model_name,
+                google_api_key = self.api_key_mgr.get("GOOGLE_API_KEY")  # type: ignore
             )
         except Exception as e:
             log.error("Error loading embedding model", error=str(e))
