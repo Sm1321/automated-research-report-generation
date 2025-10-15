@@ -30,7 +30,7 @@ class ResearchAnalystException(Exception):
 
         self.file_name = last_tb.tb_frame.f_code.co_filename if last_tb else "<unknown>"
         self.lineno = last_tb.tb_lineno if last_tb else -1
-        self.error_message = norm_msg
+        self.error_message = norm_msg 
 
         # Full pretty traceback (if available)
         if exc_type and exc_tb:
